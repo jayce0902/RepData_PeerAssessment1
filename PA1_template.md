@@ -46,6 +46,7 @@ TotalSteps<-aggregate(steps~date, act, sum)
 paletteBlue <- colorRampPalette(c("skyblue", "darkblue", "blueviolet"))
 hist(TotalSteps$steps, col = paletteBlue(22) ,breaks=20,  xlab="Total Number of Steps Per Day", ylab="Number of Days", main="Total Number of Steps Taken on a Day")
 ```
+![plot of chunk unnamed-chunk-3-1](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 3. Calculate and report the mean and median of the total number of steps taken per day
 ```{r, echo=TRUE}  
@@ -63,7 +64,7 @@ AveStepsInterval<-aggregate(steps~interval, act, mean)
 with(AveStepsInterval, plot(interval, steps, type = "l", col = "purple", xlab = "Interval (in 5mins)", ylab = "Average Number of Steps"))
 title("Time Series of Average Number of Steps Per Interval")
 ```
-
+![plot of chunk unnamed-chunk-5-1](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```{r, echo=TRUE} 
@@ -102,6 +103,8 @@ paletteR <- colorRampPalette(c("pink", "darkred", "deeppink"))
 hist(imputedTotalStepsDay$steps, breaks=20, xlab="Total Steps Taken Per Day", 
      main="Total Number of Steps Taken per Day (With Imputed Values)", col=paletteR(22))
 ```
+![plot of chunk unnamed-chunk-10-1](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+
 Calculating the mean and median total number of steps per day, we first find total number of steps per day.
 ```{r, echo=TRUE}
 meanTotalSteps <- mean(imputedTotalStepsDay$steps) 
@@ -138,5 +141,6 @@ Plot <-  ggplot(activity, aes(x = interval , y = steps, color = dayType)) +
   facet_wrap(~dayType, ncol = 2, nrow=1) +
   scale_color_discrete(name = "Day Type")
 print(Plot) 
-
 ```
+
+![plot of chunk unnamed-chunk-13-1](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
